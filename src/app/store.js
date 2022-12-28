@@ -12,7 +12,7 @@ import productSlice from '../features/product/productSlice';
     
   },
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(logger),
+  getDefaultMiddleware().concat(),
 
 })
 
