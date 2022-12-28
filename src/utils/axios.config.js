@@ -3,15 +3,15 @@ import axios from "axios"
 let URL
 switch(process.env.REACT_APP_ENVIRONMENT){
     case "DEVELOPMENT":
-    URL="http://localhost:5000/";
+    URL="https://moon-tech-6c99.onrender.com";
      break;
 
     case "PRODUCTION":
-    URL="http://gfnhfgjfgh.com";
+    URL="https://moon-tech-6c99.onrender.com";
 
     break;
     default:
-     URL="http://localhost:5000/"
+     URL="https://moon-tech-6c99.onrender.com"
 
 
 
