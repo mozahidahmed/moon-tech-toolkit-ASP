@@ -46,6 +46,7 @@ const Home = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14'>
      {content}
       </div>
+     
     </div>
   );
 };
