@@ -9,12 +9,13 @@ import Navbar from './component/shared/Navbar';
 import Dashboard from './component/Layout/Dashboard/Dashboard';
 import AddProduct from './component/shared/Pages/AddProduct';
 import ProductList from './component/shared/Pages/ProductList';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
   return (
     <div className="px-6 ">
-      
+      <Toaster/>
   <Provider store={store}>
     <Navbar/>
  <Routes>
