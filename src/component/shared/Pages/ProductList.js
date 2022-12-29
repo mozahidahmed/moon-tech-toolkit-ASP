@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import toast from 'react-hot-toast';
-import { getProducts, removeProducts } from "../../../features/product/productSlice";
+
+// import { getProducts, removeProducts } from "../../../features/product/productSlice";
 
 const ProductList = () => {
   
-const {products,isLoading,deleteSuccess}=useSelector(state=>state.products)
-  const dispatch = useDispatch();
+
  
-  useEffect(() => {
-    dispatch(getProducts());
-
-  }, []);
+ 
 
 
-   useEffect(() => {
+  
    
-    if(!isLoading && deleteSuccess){
-      toast.success("post added",{id: "add product"})
-    
-    }
-   
-  }, [isLoading,deleteSuccess]);
+
 
   return (
     <div class='flex flex-col justify-center items-center h-full w-full '>
@@ -54,7 +44,7 @@ const {products,isLoading,deleteSuccess}=useSelector(state=>state.products)
             </thead>
 
             <tbody class='text-sm divide-y divide-gray-100'>
-              {products.map(({ model, brand, price, status, _id }) => (
+              {/* {products.map(({ model, brand, price, status, _id }) => (
                 <tr>
                   <td class='p-2'>
                     <input type='checkbox' class='w-5 h-5' value='id-1' />
@@ -102,7 +92,7 @@ const {products,isLoading,deleteSuccess}=useSelector(state=>state.products)
                     </div>
                   </td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>

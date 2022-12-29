@@ -1,30 +1,27 @@
-import React, { useEffect } from "react";
-import { useDispatch ,useSelector} from "react-redux";
-import { getProducts } from "../../features/product/productSlice";
-import ProductsCard from "./ProductsCard";
+import React, { useEffect,useState } from "react";
+import { useGetProductsQuery } from "../../features/api/apiSlice";
+import ProductCard from "./ProductsCard";
+
 
 
 const Home = () => {
-  const {products}=useSelector((state)=> state.products)
-  console.log(products)
-  const dispatch = useDispatch();
+ 
+  const {data,isLoading}=useGetProductsQuery();
+  console.log(data)
+  const products =data?.data;
+if(isLoading){
+  return <h1>products data is loading .................
+  </h1>
+}
+  
+ const activeClass = "text-white  bg-indigo-500 border-white";
 
-  useEffect(() => {
-    // fetch("http://localhost:5000/products")
-    //   .then((res) => res.json())
-    //   .then((data) => setProducts(data.data));
-    dispatch(getProducts());
+ 
 
-  }, []);
-  const activeClass = "text-white  bg-indigo-500 border-white";
-   let content;
+
 
   
-  if (products.length) {
-    content = products.map((product) => (
-      <ProductsCard key={product._id} product={product} />
-    ));
-  }
+ 
 
   
 
@@ -44,7 +41,9 @@ const Home = () => {
         </button>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14'>
-     {content}
+      {products?.map((product) => (
+          <ProductCard key={product.model} product={product} />
+        ))}
       </div>
      
     </div>
