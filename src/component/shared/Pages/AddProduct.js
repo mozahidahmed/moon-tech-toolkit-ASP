@@ -2,30 +2,22 @@ import React,{useEffect} from "react";
 import { useForm } from "react-hook-form";
 
 import toast from 'react-hot-toast';
+import { useAddProductsMutation } from "../../../features/api/apiSlice";
 
 
 const AddProduct = () => {
-  // const dispatch=useDispatch()
   const { register, handleSubmit ,reset} = useForm();
-  // const {isLoading,postSuccess,error,isError}=useSelector(state=>state.products)
-
-  // useEffect(() => {
-  //   if(isLoading){
-  //     toast.loading("posting",{id: "add product"})
-  //   }
-  //   if(!isLoading && postSuccess){
-  //     toast.success("post added",{id: "add product"})
-  //     reset()
-  //   }
-  //   if(!isLoading && isError){
-  //     toast.error("ettor",{id: "add product"})
-  //     dispatch(togglePostSuccess())
-  //   }
+  const [postProduct,{isLoading,isError,isSuccess}]=useAddProductsMutation()
+  useEffect(() => {
+   
+    if(!isSuccess){
+      toast.success("post added",{id: "add product"})
+      reset()
+    }
+    
    
    
-  // }, [isLoading,isError,error,postSuccess]);
-
-
+  }, [isLoading,isSuccess]);
 
   const submit = (data) => {
     const product = {
@@ -42,14 +34,14 @@ const AddProduct = () => {
       spec: [],
     };
 
-    // dispatch(addProducts(product));
+    postProduct(product)
   };
 
   return (
     <div className='flex justify-center items-center h-full '>
       <form
         className='shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between bg-white'
-        
+        onSubmit={handleSubmit(submit)}
       >
         <div className='flex flex-col w-full  max-w-xs'>
           <label className='mb-2 ' htmlFor='model'>

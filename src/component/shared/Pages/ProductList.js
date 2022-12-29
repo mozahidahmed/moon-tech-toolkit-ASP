@@ -1,11 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useGetProductsQuery, useRemoveProductsMutation } from "../../../features/api/apiSlice";
 
 // import { getProducts, removeProducts } from "../../../features/product/productSlice";
 
 const ProductList = () => {
-  
+ const [removeProducts,{}]=useRemoveProductsMutation();
 
- 
+  const {data,isLoading,isError}=useGetProductsQuery();
+  console.log(data)
+  const products =data?.data;
+if(isLoading){
+  return <h1>products data is loading .................
+  </h1>
+}
+if(isError){
+  return <h1>something wrong .................
+  </h1>
+}
  
 
 
@@ -44,7 +55,7 @@ const ProductList = () => {
             </thead>
 
             <tbody class='text-sm divide-y divide-gray-100'>
-              {/* {products.map(({ model, brand, price, status, _id }) => (
+              {products?.map(({ model, brand, price, status, _id }) => (
                 <tr>
                   <td class='p-2'>
                     <input type='checkbox' class='w-5 h-5' value='id-1' />
@@ -72,7 +83,7 @@ const ProductList = () => {
                   <td class='p-2'>
                     <div class='flex justify-center'>
                       <button 
-                      onClick={()=>dispatch(removeProducts(_id))}
+                      onClick={()=>removeProducts(_id)}
                       >
                         <svg
                           class='w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1'
@@ -92,7 +103,7 @@ const ProductList = () => {
                     </div>
                   </td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>

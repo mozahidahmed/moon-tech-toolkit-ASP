@@ -6,11 +6,15 @@ import ProductCard from "./ProductsCard";
 
 const Home = () => {
  
-  const {data,isLoading}=useGetProductsQuery();
+  const {data,isLoading,isError}=useGetProductsQuery();
   console.log(data)
   const products =data?.data;
-if(isLoading){
+  if(isLoading){
   return <h1>products data is loading .................
+  </h1>
+}
+if(isError){
+  return <h1>something wrong .................
   </h1>
 }
   
