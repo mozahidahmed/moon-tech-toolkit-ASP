@@ -20,5 +20,5 @@
         <li>App/store.js </li>
         <li>apiSlice</li>
         <li>fetch data inj home.js</li> 
-        <li>flow rtk-branch</li>
+        <li>flow rtk-branch if you see my details code</li>
  </ul>
