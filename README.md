@@ -9,14 +9,14 @@
  
  
  <ul>
-<h6> learn total </h6>
+<h6> learn total toolkit</h6>
         <li>Get data </li>
         <li>Add to cart </li>
         <li>Delete data </li>        
  </ul>
 
  <ul>
-<h6>RTK Query </h6>
+<h6>RTK Query rtk file stacture</h6>
         <li>App/store.js </li>
         <li>apiSlice</li>
         <li>fetch data inj home.js</li> 
