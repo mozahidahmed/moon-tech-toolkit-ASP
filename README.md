@@ -12,8 +12,13 @@
 <h6> learn total </h6>
         <li>Get data </li>
         <li>Add to cart </li>
-        <li>Delete data </li>
-        <li></li>
-          <li></li>
-          
+        <li>Delete data </li>        
+ </ul>
+
+ <ul>
+<h6>RTK Query </h6>
+        <li>App/store.js </li>
+        <li>apiSlice</li>
+        <li>fetch data inj home.js</li> 
+        <li>flow rtk-branch</li>
  </ul>
